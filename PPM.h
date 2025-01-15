@@ -5,13 +5,14 @@
 #include <string>
 #include <vector>
 
-using RGBValues = std::vector<std::vector<std::array<int, 3>>>;
-using ImageSize = std::array<int, 2>;
-using Header = std::string_view;
-using ColorRange = int;
 using ColorArr = std::array<int, 3>;
-using Row = int;
-using Column = int;
+using VectColorArr = std::vector<ColorArr>;
+using RGBValues = std::vector<VectColorArr>;
+
+using ImageSize = std::array<int, 2>;
+using Header = std::string;
+using ColorRange = int;
+using FileName = std::string_view;
 
 /*
  * RGBValues looks like this:
@@ -27,14 +28,16 @@ class PPM {
     ImageSize size;
     ColorRange range; 
     RGBValues pixMap;
-    Row row;
-    Column col;
+    FileName fileName;
 
-  public:
-    void setHeader(Header _header);
+    void setHeader(const Header& _header);
     void setSize(const ImageSize& _size);
     void setColorRange(ColorRange _range);
-    void createPixelMap(const ColorArr& arr);
+    void createPixelMap(const ColorArr& arr, int currRow);
+
+  public:
+    PPM(FileName infile);
+    void getPPM();
 };
 
 #endif

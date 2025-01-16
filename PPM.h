@@ -28,6 +28,7 @@ class PPM {
     void createPixelMap(const ColorArr& arr, int currRow);
 
   public:
+    bool fileOpen { true };
     PPM(FileName infile);
     FileName getFileName() const;
     RGBValues getPixelMap() const;

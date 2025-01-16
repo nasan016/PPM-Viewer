@@ -9,6 +9,10 @@ void cameraZoom(Camera2D& camera);
 void drawPixelMap(RGBValues pixelMap);
 
 void initScreen(const PPM& ppm) {
+  if (!ppm.fileOpen) {
+    return;
+  }
+
   FileName windowName = ppm.getFileName();
   RGBValues pixelMap = ppm.getPixelMap();
 

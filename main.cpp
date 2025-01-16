@@ -1,8 +1,9 @@
 #include "PPM.h"
+#include "renderer.h"
 
 int main() {
   PPM newPPM = PPM("map.ppm");
-  newPPM.getPPM();
+  initScreen(newPPM);
 
   return 0;
 }

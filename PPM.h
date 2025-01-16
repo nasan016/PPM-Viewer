@@ -12,15 +12,7 @@ using RGBValues = std::vector<VectColorArr>;
 using ImageSize = std::array<int, 2>;
 using Header = std::string;
 using ColorRange = int;
-using FileName = std::string_view;
-
-/*
- * RGBValues looks like this:
- * { 
- *  {[255, 255, 255], [255, 255, 255]}, 
- *  {[255, 255, 255], [255, 255, 255]} 
- * }
- */
+using FileName = std::string;
 
 class PPM {
   private:
@@ -37,7 +29,9 @@ class PPM {
 
   public:
     PPM(FileName infile);
-    void getPPM();
+    FileName getFileName() const;
+    RGBValues getPixelMap() const;
+    void getPPM() const;
 };
 
 #endif

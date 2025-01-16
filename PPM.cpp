@@ -1,23 +1,11 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-
 #include "PPM.h"
 
-/*
- * Example PPM File:
- *
- * P3
- * # map.ppm
- * 4 4
- * 255
- * 0  0  0   100 0  0       0  0  0    255   0 255
- * 0  0  0    0 255 175     0  0  0     0    0  0
- * 0  0  0    0  0  0       0 15 175    0    0  0
- * 255 0 255  0  0  0       0  0  0    255  255 255
- */
-
 PPM::PPM(FileName infile) {
+  fileName = infile;
+
   std::ifstream file(infile);
 
   if (!file.is_open()) {
@@ -91,15 +79,25 @@ void PPM::createPixelMap(const ColorArr& arr, int currRow) {
   (pixMap[currRow]).push_back(arr);
 }
 
-void PPM::getPPM() {
+void PPM::getPPM() const{
   std::cout << "Header: " << header << '\n';
   std::cout << "Size: " << size[0] << " x " << size[1] << '\n';
   std::cout << "Range: " << range << '\n';
+  std::cout << '\n';
+  std::cout << "Pixels:\n";
 
-  for (auto vect : pixMap) {
-    for (auto arr : vect) {
+  for (const auto& vect : pixMap) {
+    for (const auto& arr : vect) {
       std::cout << '(' << arr[0] << ',' << arr[1] << ',' << arr[2] << ')' << " ";
     }
     std::cout << '\n';
   }
+}
+
+RGBValues PPM::getPixelMap() const {
+  return pixMap;
+}
+
+FileName PPM::getFileName() const {
+  return fileName;
 }

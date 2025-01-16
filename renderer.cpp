@@ -11,8 +11,6 @@ void initScreen(const PPM& ppm) {
   constexpr int screenWidth = 500;
   constexpr int screenHeight = 500;
 
-  constexpr int squareLen = 20;
-
   InitWindow(screenWidth, screenHeight, windowName.c_str());
   SetTargetFPS(60);
 

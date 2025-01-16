@@ -47,7 +47,7 @@ PPM::PPM(FileName infile) {
     ++iterator;
 
     if (iterator > 3) {
-      for (size_t j = 0; j < size[1]; ++j) {
+      for (size_t i = 0; i < size[0]; ++i) {
         ColorArr arr;
         stream >> arr[0] >> arr[1] >> arr[2];
         createPixelMap(arr, idx);

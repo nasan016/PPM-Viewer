@@ -8,4 +8,4 @@ main: main.cpp
 	$(CXX) $(CXXFLAGS) main.cpp PPM.cpp renderer.cpp -o main $(LDFLAGS)
 
 clean:
-	rm -f main
+	rm -f ppm

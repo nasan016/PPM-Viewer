@@ -14,6 +14,6 @@ int main(int argc, char* argv[]) {
 
   PPM newPPM = PPM(argv[1]);
   initScreen(newPPM);
-  newPPM.getPPM();
+
   return 0;
 }

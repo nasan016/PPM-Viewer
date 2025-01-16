@@ -15,8 +15,12 @@ void initScreen(const PPM& ppm) {
   constexpr int screenWidth = 500;
   constexpr int screenHeight = 500;
 
-  Camera2D camera = { 0 };
-  camera.zoom = 1.0f;
+  Camera2D camera {
+      { 0.0f, 0.0f }, 
+      { 0.0f, 0.0f },
+      0.0f,
+      1.0f
+  };
 
   InitWindow(screenWidth, screenHeight, windowName.c_str());
   SetTargetFPS(60);
